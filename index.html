@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="window">
+      <div class="result">
+        <label id="equation"></label>
+        <label id="result"></label>
+      </div>
+      <div class="buttons">
+        <button id="percent" disabled>%</button>
+        <button id="CE" disabled>CE</button>
+        <button id="C">C</button>
+        <button id="erase">⌫</button>
+      </div>
+      <div class="buttons">
+        <button id="fraction" disabled>1/x</button>
+        <button id="power" disabled>x²</button>
+        <button id="square-root" disabled>√x</button>
+        <button id="divide" class="action">÷</button>
+      </div>
+      <div class="buttons">
+        <button id="7" class="digits" value="7">7</button>
+        <button id="8" class="digits">8</button>
+        <button id="9" class="digits">9</button>
+        <button id="multiply" class="action">x</button>
+      </div>
+      <div class="buttons">
+        <button id="4" class="digits">4</button>
+        <button id="5" class="digits">5</button>
+        <button id="6" class="digits">6</button>
+        <button id="minus" class="action">-</button>
+      </div>
+      <div class="buttons">
+        <button id="1" class="digits">1</button>
+        <button id="2" class="digits">2</button>
+        <button id="3" class="digits">3</button>
+        <button id="plus" class="action">+</button>
+      </div>
+      <div class="buttons">
+        <button id="change-sign" class="digits">+/-</button>
+        <button id="0" class="digits">0</button>
+        <button id="comma" class="digits">.</button>
+        <button id="equals" class="equals">=</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+body,
+html {
+    height: 100%;
+    background: rgb(35, 36, 35);
+}
+
+button {
+    width: 23%;
+    height: 95%;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.buttons {
+    height: 14%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 7px;
+    margin-bottom: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#equation {
+    font-size: 17px;
+}
+
+#result {
+    height: 50px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#window {
+    background-color: lightgray;
+    height: 530px;
+    width: 320px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#change-sign {
+    border-radius: 0 0 0 15px;
+    border-width: 1px;
+}
+
+#equals {
+    border-radius: 0 0 15px 0;
+    border-width: 1px;
+}
