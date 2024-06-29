@@ -34,14 +34,31 @@ button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.action,
+#equals,
+#erase,
+#C {
+    background-color: orange;
+}
+
+.digits {
+    background-color: aquamarine;
+}
+
 #equation {
     font-size: 17px;
 }
 
 #result {
-    height: 50px;
-    font-size: 40px;
+    border-radius: 15px;
+    border: solid black 1px;
+    background-color: antiquewhite;
+    height: 70px;
+    width: 300px;
+    text-align: end;
+    font-size: 50px;
     font-weight: 600;
+    padding-right: 5px;
 }
 
 #window {
