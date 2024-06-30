@@ -35,9 +35,11 @@ button {
 }
 
 .action,
-#equals,
-#erase,
-#C {
+.instant-action,
+.equals,
+#Backspace,
+#C,
+#CE {
     background-color: orange;
 }
 

@@ -10,6 +10,14 @@ function operate(numOne, numTwo, operator) {
         result = multiply(one, two);
     } else if (operator == "÷") {
         result = divide(one, two);
+    } else if (operator == "√x") {
+        result = squareRoot(one);
+    } else if (operator == "x²") {
+        result = square(one);
+    } else if (operator == "1/x") {
+        result = fraction(one);
+    } else if (operator == "%") {
+        result = percent(one);
     }
     if (result == Math.floor(result)) {
         if (String(result).length > 11) {
@@ -21,7 +29,7 @@ function operate(numOne, numTwo, operator) {
         if (result.toFixed(6).length > 11) {
             return result.toExponential(5);
         } else {
-            return result.toFixed(10 - resultBaseLength);
+            return parseFloat(result.toFixed(10 - resultBaseLength));
         }
     }
 }
@@ -45,6 +53,22 @@ function divide(numOne, numTwo) {
     return numOne / numTwo;
 }
 
+function squareRoot(numOne) {
+    return Math.pow(numOne, 0.5);
+}
+
+function square(numOne) {
+    return Math.pow(numOne, 2);
+}
+
+function fraction(numOne) {
+    return 1/numOne;
+}
+
+function percent(numOne) {
+    return numOne * 0.01;
+}
+
 const mainLabel = document.querySelector("#result");
 const allButtons = document.querySelectorAll("button");
 const commaButton = document.querySelector("#comma");
@@ -60,6 +84,9 @@ function clearScreen(button) {
         firstNumber = '';
         secondNumber = '';
         operator = '';
+        mainLabel.textContent = '0';
+        actionFlag = true;
+    } else if (button.textContent == "CE") {
         mainLabel.textContent = '0';
         actionFlag = true;
     }
@@ -99,8 +126,13 @@ function calculate(button) {
             secondNumber = '';
             actionFlag = true;  
         } else if (actionFlag == true && firstNumber == '') {
-            firstNumber = mainLabel.textContent;
-            operator = button.textContent;
+            if (mainLabel.textContent == '' && button.textContent == '-') {
+                mainLabel.textContent = "-";
+                actionFlag = false;
+            } else {
+                firstNumber = mainLabel.textContent;
+                operator = button.textContent;
+            }
         }
     } else if (button.className == 'equals') {
         commaButton.disabled = false;
@@ -122,13 +154,22 @@ function calculate(button) {
             operator = '';
             actionFlag = true;
         }
-    } else if (button.id == 'erase' && actionFlag == false) {
+    } else if (button.id == 'Backspace' && actionFlag == false) {
         if (mainLabel.textContent.length > 1) {
             mainLabel.textContent = mainLabel.textContent.slice(0, -1);
         } else {
             mainLabel.textContent = '0';
             actionFlag = true;
         }
+    } else if (button.className == 'instant-action') {
+        commaButton.disabled = false;
+        operator = button.textContent;
+        firstNumber = mainLabel.textContent;
+        mainLabel.textContent = operate(firstNumber, firstNumber, operator);
+        firstNumber = '';
+        secondNumber = '';
+        operator = '';
+        actionFlag = true;
     }
 }
 
@@ -136,3 +177,17 @@ allButtons.forEach(button => button.addEventListener('click', () => {
     calculate(button);
     clearScreen(button);
 }));
+
+const allowedKeys = {"1": "one", "2": "two", "3": "three", "4": "four", "5": "five", "6": "six",
+    "7": "seven", "8": "eight", "9": "nine", "0": "zero", "-": "minus", "=": "equals", "/": "divide",
+    "*": "multiply", "%": "percent", "Backspace": "Backspace", ".": "comma", "+": "plus", }
+
+document.addEventListener("keydown", (e) => {
+    if (e.key in allowedKeys) {
+        console.log(e.key);
+        e.preventDefault();
+        document.getElementById(allowedKeys[e.key]).click();
+    } else {
+        console.log(`not valid: ${e.key}`);
+    }
+});
