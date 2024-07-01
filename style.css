@@ -8,7 +8,7 @@
 body,
 html {
     height: 100%;
-    background: rgb(35, 36, 35);
+    background: rgb(124, 128, 124);
 }
 
 button {
@@ -16,6 +16,11 @@ button {
     height: 95%;
     font-size: 20px;
     font-weight: 100;
+    border: solid black 1px;
+}
+
+button:hover {
+    opacity: 70%;
 }
 
 .buttons {
@@ -32,6 +37,7 @@ button {
     margin-right: 7px;
     margin-bottom: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 20px;
 }
 
 .action,
@@ -45,6 +51,10 @@ button {
 
 .digits {
     background-color: aquamarine;
+}
+
+#window {
+    padding: 30px;
 }
 
 #equation {
@@ -71,6 +81,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: end;
+    box-shadow: 10px 10px 25px 5px #000000;
 }
 
 #change-sign {
@@ -80,5 +91,15 @@ button {
 
 #equals {
     border-radius: 0 0 15px 0;
+    border-width: 1px;
+}
+
+#percent {
+    border-radius: 15px 0 0 0;
+    border-width: 1px;
+}
+
+#Backspace {
+    border-radius: 0 15px 0 0;
     border-width: 1px;
 }
