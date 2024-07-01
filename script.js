@@ -18,6 +18,8 @@ function operate(numOne, numTwo, operator) {
         result = fraction(one);
     } else if (operator == "%") {
         result = percent(one);
+    } else if (operator == "+/-") {
+        result = changeSign(one);
     }
     if (result == Math.floor(result)) {
         if (String(result).length > 11) {
@@ -67,6 +69,10 @@ function fraction(numOne) {
 
 function percent(numOne) {
     return numOne * 0.01;
+}
+
+function changeSign(numOne) {
+    return -1 * numOne;
 }
 
 const mainLabel = document.querySelector("#result");
@@ -133,6 +139,8 @@ function calculate(button) {
                 firstNumber = mainLabel.textContent;
                 operator = button.textContent;
             }
+        } else if (actionFlag == true && firstNumber != '') {
+            operator = button.textContent;
         }
     } else if (button.className == 'equals') {
         commaButton.disabled = false;
@@ -184,10 +192,7 @@ const allowedKeys = {"1": "one", "2": "two", "3": "three", "4": "four", "5": "fi
 
 document.addEventListener("keydown", (e) => {
     if (e.key in allowedKeys) {
-        console.log(e.key);
         e.preventDefault();
         document.getElementById(allowedKeys[e.key]).click();
-    } else {
-        console.log(`not valid: ${e.key}`);
     }
 });
